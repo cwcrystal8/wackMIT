@@ -26,5 +26,5 @@ class Person:
 
     def checkSendNotification(self, currentLocation):
         if checkLocation() and checkActive(): return True
-        else: false
+        else: False
         
