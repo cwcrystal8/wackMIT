@@ -1,4 +1,4 @@
-import [insert generic GUI library here]
+# import [insert generic GUI library here]
 
 
 
@@ -53,4 +53,3 @@ def sendExerciseNotif():
     makeNotificationWindow()
     updateNotifWindowMessage()
     makeNotifButtons()
-
