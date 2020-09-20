@@ -19,7 +19,7 @@ class Person:
  
         watch = self.watch
         ###do fancy watch calls###
-        self.currentLocation = watch.getLocation
+        self.currentLocation = watch.getLocation()
 
     def checkLocation(self, currentLocation):
         if currentLocation in self.workoutLocations: return True
