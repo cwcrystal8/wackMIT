@@ -23,15 +23,18 @@ def setUp():
 
 def loop(person):
     if person.checkSendNotification():
-        response = input(f"Now seems like a good time to exercise. Would you like to exercise? (Y/N) ")
-        if response == "Y":
-            response = input(f"Would you like to do {person.getCurrentExercise()}? (Y/N) ")
+        response = input(f"Now seems like a good time to exercise. Would you like to exercise? (Y/N/Q) ")
+        if response.lower() == "q":
+            return None
+        if response.lower() == "y":
             for i in range(len(person.preferredExercises)):
+                response = input(f"Would you like to do {person.getCurrentExercise()}? (Y/N/Q) ")
                 person.updateCurrentExercise()
-                response = input(f"Would you like to do {person.getCurrentExercise()}? (Y/N) ")
-                if response == "Y":
-                    person.updateCurrentExercise()
+                if response.lower() == "q":
+                    return None
+                if response.lower() == "y":
                     return True
+            print("Looks like you don't want to exercise then...")
     return False
 
 if __name__ == "__main__":
@@ -41,3 +44,6 @@ if __name__ == "__main__":
         did_exercise = loop(person)
         if did_exercise:
             print(f"Wow! Great job {person.name}!")
+        if did_exercise is None:
+            print("Bye!")
+            break
